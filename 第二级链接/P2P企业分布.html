@@ -1,0 +1,220 @@
+
+<html>
+  <head>
+  <meta charset="utf-8">
+  <style type="text/css">
+  body {
+  margin: 0;
+  }
+  h1.ex1
+  {margin-top:1.5cm;
+  color:708090}
+  a.hvr-bounce-to-bottom 
+  {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-to-bottom:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:#222222;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-border-radius:7px;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-ms-border-radius:7px;
+	text-decoration:none;
+}
+.hvr-bounce-to-bottom:hover, .hvr-bounce-to-bottom:focus, .hvr-bounce-to-bottom:active {
+  color: white;
+}
+.hvr-bounce-to-bottom:hover:before, .hvr-bounce-to-bottom:focus:before, .hvr-bounce-to-bottom:active:before {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+  #main {
+  height: 100%;
+  }
+  </style>
+  </head>
+  <body>
+  <center>
+	<table>
+		<tr>
+			<td>
+				<center>
+					<h1 class="ex1" >P2P现有企业分布图</h1>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				  <div id="main" style = "height:400px;width:600px;"></div>
+				  <script src="../js/echarts.js"></script>
+				  <script src = "../js/echarts-all.js"></script>
+				  <script>
+				  var myChart = echarts.init(document.getElementById("main"));
+
+				  var options = 
+				{
+
+				  backgroundColor: 'FFFFFF',
+				  color: ['gold','aqua','lime'],
+				  title : {
+					text: '',
+					subtext:'',
+					x:'center',
+					textStyle : {
+					  color: '#1b1b1b'
+					}
+				  },
+				  tooltip : {
+					trigger: 'item',
+					formatter: function (v) {
+							if(typeof(v[2])=='number'){
+							return(v[1]+': '+v[2])
+							}else if(v[2].tooltipValue!=null){
+							return v[2].tooltipValue;
+						  }else{
+							return v[1];
+						  }
+				  }},
+					legend: {
+						show:false,
+						orient: 'vertical',
+						x:'left',
+						data:['Data'],
+						textStyle:{color:'#D9D9D9'}
+
+					},
+				  toolbox: {
+					show : true,
+					orient : 'vertical',
+					x: 'right',
+					y: 'center',
+					feature : {
+					  mark : {show: true},
+					  dataView : {show: true, readOnly: false},
+					  restore : {show: true},
+					  saveAsImage : {show: true}
+					}
+				  },
+				  dataRange: {
+					min : -23,
+					max : 402,
+					calculable : true,
+					color: ['orange', 'white'],
+					textStyle:{
+					  color:'#1b1b1b'
+					}
+				  },
+				  series : [
+					{
+					name:'Data',
+					type:'map',
+					mapType: 'china',
+					itemStyle:{
+					normal:{
+					borderColor:'rgba(100,149,237,1)',
+					borderWidth: 0.5,
+					label:{show:true,textStyle:{color:'#1b1b1b'}},
+					},
+					emphasis:{label:{show:true,textStyle:{color:'#1b1b1b'}}}
+				  },
+				  data:[{name:'上海',value:183},
+						{name:'云南',value: 17},
+						{name:'内蒙古',value:  6},
+						{name:'北京',value:285},
+						{name:'吉林',value:  3},
+						{name:'四川',value: 57},
+						{name:'天津',value: 19},
+						{name:'宁夏',value:  6},
+						{name:'安徽',value: 50},
+						{name:'山东',value: 88},
+						{name:'山西',value: 10},
+						{name:'广东',value:377},
+						{name:'广西',value: 17},
+						{name:'新疆',value: 11},
+						{name:'江苏',value: 48},
+						{name:'江西',value: 29},
+						{name:'河北',value: 33},
+						{name:'河南',value: 43},
+						{name:'浙江',value:121},
+						{name:'海南',value:  3},
+						{name:'湖北',value: 65},
+						{name:'湖南',value: 46},
+						{name:'甘肃',value:  2},
+						{name:'福建',value: 42},
+						{name:'贵州',value: 21},
+						{name:'辽宁',value: 12},
+						{name:'重庆',value: 45},
+						{name:'陕西',value: 24},
+						{name:'黑龙江',value:  9}]
+				  
+				  
+				  }]
+				}
+				;
+				  myChart.setOption(options);
+				  </script>
+				  </div>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<!--
+					P2P现有企业分布地图描述
+				-->
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div style = "margin-left:400px; height:400px width:400px">
+					<a class="hvr-bounce-to-bottom" href = "./P2P倒闭企业分布.html" target="_blank"><font size = "6">P2P倒闭企业分布图</font></a>
+					
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div style = "margin-left:400px; height:400px width:400px">
+					<a class="hvr-bounce-to-bottom" href = "./P2P倒闭企业名录信息.html" target="_blank"><font size = "6">P2P所有企业分布图</font></a>
+					
+				</div>
+			</td>
+		</tr>
+</center>
+	</table>
+
+	
+  </body>
+  </html>

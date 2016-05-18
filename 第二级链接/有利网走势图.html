@@ -1,0 +1,133 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <style type="text/css">
+  body {
+  margin: 0;
+  position: static;s
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  }
+  h2.ex1 
+  {margin-top:2cm;}
+  div.chart
+  {margin-top:1cm;}
+  #main {
+  height: 100%;
+  }
+  </style>
+  </head>
+  <body>
+  
+<center>
+  <table>
+ 
+	 <tr>
+		<td>
+			<center>
+				<font size = "5" color="000000"><strong>有利网2015年至今评论走势图</strong></font>
+			</center>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		  <div id="main" style = "height:550px;width:800px;"></div>
+		  <script src="../js/echarts.js"></script>
+		  <script src = "../js/echarts-all.js"></script>
+		  <script>
+		  var myChart = echarts.init(document.getElementById("main"));
+
+		  var options = {
+				title : {
+					text: ' ',
+					subtext: '',
+					x:'center'
+			},
+         tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['好评数','差评数','中性评论数']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: false, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+            restore : {show: true},
+            saveAsImage : {show: false}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['May_2015',	'Jun_2015','	Jul_2015','	Aug_2015','	Sep_2015','	Oct_2015','	Nov_2015','	Dec_2015','	Jan_2016','	Feb_2016','	Mar_2016','	Apr_2016'
+]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'好评数',
+            type:'line',
+            stack: '数目',
+            data:[173	,10	,136,	90,	10,	32,	39,	12,	12,	9,	119,	391
+
+]
+        },
+        {
+            name:'差评数',
+            type:'line',
+            stack: '数目',
+            data:[37	,19,	56,	25,	23,	44,	17,	14,	23,	22,	48,	168
+
+]
+        },
+        
+        {
+            name:'中性评论数',
+            type:'line',
+            stack: '数目',
+            data:[27,	2,	30	,8,	2	,9,	5,	3,	5,	2,	17,	106
+
+]
+        }
+    ]
+};       	
+		  myChart.setOption(options);
+		  
+		  </script>
+		  </td>
+	  </tr>
+	  <tr>
+		<td>
+		<center><p><font size = "3" color="000000" >
+			<br>由图可以看出，有利网此家企业在2016年4月之前评论数波动不大，但是在2016年4月突然骤增，所有评论中<br>好评仍占大多数，4月剧增可能暗示着有利网在以后有增长的趋势。
+		</font>
+        </p></center>
+		</td></tr>
+		<tr>
+		<td><center>
+		<h2 class="ex1">聚类结果
+		</h2>
+			<img  src="../images/有利网.png" width="700" height="450" style="background-color:FFFFE0" />
+			<p ><font size="3" color="000000">
+			上图给出了有利网聚类的部分结果图，可以看出有利网最后聚类成5类，第一类有2099个词项、<br>
+			第二类有5个词项、第三类有67个词项、第四类有9个词项、第五类32个词项。
+            </font></p>
+		</center>	
+		</td>
+	  </tr>
+	  
+  </table>
+  </center>
+  </body>
+  </html>
