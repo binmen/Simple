@@ -1,0 +1,252 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <style type="text/css">
+  body {
+  margin: 0;
+  position: static;s
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  }
+  img.ex1 
+  {margin-top:3cm;}
+  div.chart
+  {margin-top:1cm;}
+  center.ex1
+  {margin-top:3cm;}
+  #main {
+  height: 100%;
+  }
+  </style>
+  </head>
+  <body>
+  
+<center>
+  <table>
+ 
+	 <tr>
+		<td>
+			<center>
+				<font size = "10" color="FFFFE0"><strong>有利网</strong></font>
+			</center>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		  <div id="main" style = "height:600px;width:800px;"></div>
+		  <script src="../js/echarts.js"></script>
+		  <script src = "../js/echarts-all.js"></script>
+		  <script>
+		  var myChart = echarts.init(document.getElementById("main"));
+
+		  var options = 
+				{
+					foot:{
+						text: '宜人贷评论数据情感分析',
+						subtext: '',
+						x:'center'
+				},
+				title : {
+						text: '宜人贷评论数据情感分析',
+						subtext: '',
+						x:'center'
+				},
+				tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['正向评论','负向评论','中性评论','收益高','收益低','提现费or手续费低','提现费or手续费高','坏账or逾期少','坏账or逾期多','背景好','背景一般','提现快','提现慢','功能齐全','功能少','操作简便','操作复杂','风险小','风险大','安全性低','安全','服务贴心','服务差','透明度高','透明度低']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : false,
+    series : [
+        {
+            name:'评论情感',
+            type:'pie',
+            selectedMode: 'single',
+            radius : [0, 70],
+            
+            // for funnel
+            x: '20%',
+            width: '40%',
+            funnelAlign: 'right',
+            max: 1548,
+            
+            itemStyle : {
+                normal : {
+                    label : {
+                        position : 'inner'
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                }
+            },
+            data:[
+				{value:903,name:'正向评论'},
+				{value:509,name:'负向评论'},
+				{value:173,name:'中性评论'},
+				]
+        },
+        {
+            name:'评论关键词',
+            type:'pie',
+            radius : [100, 140],
+            
+            // for funnel
+            x: '60%',
+            width: '50%',
+            funnelAlign: 'left',
+            max: 200,
+            
+            data:[
+				{value:97,name:'收益高'},
+				{value:25,name:'收益低'},
+				{value:1,name:'背景好'},
+				{value:51,name:'提现费or手续费低'},
+				{value:54,name:'提现费or手续费高'},
+				{value:5,name:'坏账or逾期少'},
+				{value:2,name:'坏账or逾期多'},
+				{value:54,name:'提现快'},
+				{value:68,name:'提现慢'},
+				{value:31,name:'操作简便'},
+				{value:6,name:'操作复杂'},
+				{value:5,name:'风险小'},
+				{value:4,name:'风险大'},
+				{value:35,name:'安全'},
+				{value:4,name:'安全性低'},
+				{value:11,name:'服务贴心'},
+				{value:6,name:'服务差'},
+				{value:4,name:'透明度高'},
+				{value:4,name:'透明度低'},
+			]
+        }
+    ]
+};
+		  myChart.setOption(options);
+		  
+		  </script>
+		  </td>
+	  </tr>
+	  </table>
+	  </center>
+	  <tr>
+			<td>
+				<div style = "margin-left:1100px; height:400px width:400px">
+				<a class="hvr-bounce-to-bottom" href = "./有利网走势图.html" target="_blank"><font size = "4" color="FFFFE0">查看评论走势图</font></a>
+				<p><font size="4" color="FFFFE0">相关企业</p>
+				<a href = "./人人贷.html" target="_blank"><font size = "4" color="FFFFE0">人人贷</font></a>	
+				<a href = "./微贷网.html" target="_blank"><font size = "4" color="FFFFE0">微贷网</font></a>
+				<a href = "./积木盒子.html" target="_blank"><font size = "4" color="FFFFE0">积木盒子</font></a>
+				<a href = "./投哪网.html" target="_blank"><font size = "4" color="FFFFE0">投哪网</font></a>
+				</div>
+			</td>
+		</tr>
+<center>
+<table>
+	  
+	  <tr>
+		<td>
+		    <center  ><h1>  <font color="FFFFE0">关键词提取</font></h1></center>
+			<img  src="../images/有利网词频图.png" width="700" height="450" />
+			
+		</td>
+	  </tr> 
+	  <tr>
+		<td>
+			<center  class="ex1"><h1>  <font color="FFFFE0">主题模型分析</font></h1></center>
+			<center><p ><font size="3" color="FFFFE0">
+			我们通过主题模型，将企业评论数据分成不同类的主题，挖掘出评论数据的主要内容，<br>
+			选取几个主题来表达评论数据的内容。
+			</font></p></center>
+			<img src="../images/ylw-1.png" width="700" height="450" style="background-color:FFFFE0" />
+			<center><p ><font size="3" color="FFFFE0">
+			将困惑度设置为2~25，使用LDA_VEM模型，得到困惑度与信息熵的变化趋势如上图所示，困惑度<br>
+			是先上升后下降的趋势，信息熵是处于一直上升趋势，最后综合考虑到困惑度、信息熵<br>
+			与计算成本代价，选取主题个数为3，建立主题模型。
+</font></p></center>
+		</td>
+	  </tr>
+	  <tr>
+		<td>
+			<img class="ex1" src="../images/ylw-2.png" width="700" height="450" style="background-color:FFFFE0"/>
+			<center><p ><font size="3" color="FFFFE0">
+			上图展示的文档主题概率分布，颜色越深，表示属于该主题的概率越高。由图中可以看出，<br>
+			颜色区分度比较好，说明主题区分比较好。
+
+			</font></p></center>
+		</td>
+	  </tr>
+	  <tr>
+		<td>
+			<img class="ex1" src="../images/ylw-3.png" width="700" height="500" style="background-color:FFFFFF"/>
+
+		</td>
+	  </tr>
+	  <tr>
+		<td>
+			<img src="../images/ylw-4.png" width="700" height="500" style="background-color:FFFFFF"/>
+		</td>
+	  </tr>
+	  <tr>
+		<td>
+			<center><p  style="margin-top:0.6cm;"><font size="3" color="FFFFE0">
+			上述两图是抽取每个主题阈值在0.002以上的前8个词，绘制成网络图，做出三个主题，由主题模型的<br>
+			结果，我们大致可以归纳出以下几个主题：第一，部分用户认为比较实用；第二，部分用户认为<br>
+			比较麻烦；第三，部分用户认为其是骗子。说明用户对有利网的整体评价不是很好。
+			</font></p></center>
+		</td>
+	  </tr>
+	  
+	  <tr>
+		<td>
+			<img class="ex1" src="../images/ylw-5.png" width="700" height="450" style="background-color:FFFFE0"/>
+			<center><p ><font size="3" color="FFFFE0">
+			对评论数据分别建立LDA_VEM、LDA_VEM_fixed、LDA_Gibbs、CTM四种模型，设置主题数k=3，得到三种<br>
+			模型对文档分配给最有可能文档的频数分布图如上图所示，很容易看出CTM的频数比较大，<br>
+			也就是说绝大多数的文档都有一个可能性非常大的主题，而其他两个个模型比较分散。
+
+            </font></p></center>
+		</td>
+	   </tr>
+	   <tr>
+		<td>
+			<img class="ex1" src="../images/ylw-6.png" width="700" height="450" style="background-color:FFFFE0"/>
+			<center><p ><font size="3" color="FFFFE0">
+			由主题得分发现，主题之间存在交互现象，b1、c4、d2主题得分差不多，主题区分不是很明显，<br>
+			主题大致可以归出两类。
+			</font></p></center>
+		</td>
+	   </tr>
+	   <tr>
+		<td>
+			<img class="ex1" src="../images/ylw-7.png" width="700" height="450" style="background-color:FFFFE0"/>
+			<center><p ><font size="3" color="FFFFE0">
+			上图显示的是各个主题的词云图，发现主题之间交互的词还比较多，说明主题之间区分不是很明显。
+			</font></p></center>
+		</td>
+	   </tr>
+	  </tr>
+  </table>
+  </center>
+  </body>
+  </html>
